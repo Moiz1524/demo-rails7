@@ -62,6 +62,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "demo_rails7_production"
 
+  # Use Mailgun SMTP credentials for sending emails
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => Rails.application.credentials.dig(:mailgun, :domain),
+    :user_name => Rails.application.credentials.dig(:mailgun, :username),
+    :password => Rails.application.credentials.dig(:mailgun, :password)
+  }
+  config.action_mailer.perform_deliveries = true
+  
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
