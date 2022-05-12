@@ -5,7 +5,7 @@ class CommentsMailerTest < ActionMailer::TestCase
     # comment = 
     mail = CommentsMailer.submitted(comments(:one))
     assert_equal "New comment!", mail.subject
-    assert_equal ["blog-owner@example.org"], mail.to
+    assert_equal ["amoiz4142@gmail.com"], mail.to
     assert_equal ["from@example.com"], mail.from
   end
 
