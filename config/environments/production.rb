@@ -66,12 +66,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
+    :authentication => 'plain',
     :address => "smtp.mailgun.org",
     :port => '587',
     :domain => Rails.application.credentials.dig(:mailgun, :domain),
     :user_name => Rails.application.credentials.dig(:mailgun, :username),
     :password => Rails.application.credentials.dig(:mailgun, :password)
+    :tls => true
   }
   config.action_mailer.perform_deliveries = true
   
