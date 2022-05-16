@@ -71,7 +71,7 @@ Rails.application.configure do
     :port => '587',
     :domain => Rails.application.credentials.dig(:mailgun, :domain),
     :user_name => Rails.application.credentials.dig(:mailgun, :username),
-    :password => Rails.application.credentials.dig(:mailgun, :password)
+    :password => Rails.application.credentials.dig(:mailgun, :password),
     :tls => true
   }
   config.action_mailer.perform_deliveries = true
