@@ -72,6 +72,9 @@ Rails.application.configure do
     :domain => Rails.application.credentials.dig(:mailgun, :domain),
     :user_name => Rails.application.credentials.dig(:mailgun, :username),
     :password => Rails.application.credentials.dig(:mailgun, :password),
+    :enable_starttls_auto => true,
+    :openssl_verify_mode =>'none',
+    :ssl => true,
     :tls => true
   }
   config.action_mailer.perform_deliveries = true
